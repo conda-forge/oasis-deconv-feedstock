@@ -19,7 +19,7 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - python
-    - setuptools <=64.0.2
+    - setuptools
     - numpy
     - cython
     - pip
