@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v0.2.1.tar.gz
+  url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 9ae6d77b034905c00d70a930b370de48b186dd2dd044556aeb99b6c59d0aa334
 
 build:
@@ -15,8 +15,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
+    - gcc
     - python
     - setuptools
     - numpy <=1.26.4
