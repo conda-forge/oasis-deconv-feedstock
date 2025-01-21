@@ -6,29 +6,26 @@ package:
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/fb/34/ce29bb9a1b330505be783d8496cba45ce115e0467d4b62e007a22644d0ee/oasis_deconv-0.2.1.tar.gz
-  sha256: 6d9a9867f167d4ad49f3799474d6db7551eff6419928589d1d82eeded0e2b024
+  url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v0.2.1.tar.gz
+  sha256: 9ae6d77b034905c00d70a930b370de48b186dd2dd044556aeb99b6c59d0aa334
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
-  host:
     - python
     - setuptools
-    - numpy
-    - cython
+    - numpy <=1.26.4
+    - cython ==3.0.11
     - pip
   run:
     - python
-    - {{ pin_compatible("numpy") }}
+    - numpy <=1.26.4
+    - cython ==3.0.11
     - scipy
     - matplotlib-base
-    - cython
     - cvxpy
     - ecos
 
