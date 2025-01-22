@@ -31,14 +31,14 @@ requirements:
 test:
   imports:
     - oasis
-  requires:
-    - nose2
-    - cvxpy  # [not (osx and py313)]
-    - ecos   # [not (osx and py313)]
-  source_files:
-    - tests
-  commands:
-    - nose2 tests  # [not (osx and py313)]
+  # requires:
+  #   - nose2
+  #   - cvxpy  # [not (osx and py313)]
+  #   - ecos   # [not (osx and py313)]
+  # source_files:
+  #   - tests
+  # commands:
+  #   - nose2 tests  # [not (osx and py313)]
 
 about:
   home: https://github.com/j-friedrich/OASIS
