@@ -19,7 +19,7 @@ requirements:
   host:
     - python
     - numpy <2.0.0  # [not py313]
-    - numpy         # [py313]
+    - numpy >=2.2.2  # [py313]
     - cython
     - pip
   run:
