@@ -10,12 +10,13 @@ source:
   sha256: 9ae6d77b034905c00d70a930b370de48b186dd2dd044556aeb99b6c59d0aa334
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --ignore-installed
   number: 0
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
@@ -31,14 +32,14 @@ requirements:
 test:
   imports:
     - oasis
-  # requires:
-  #   - nose2
-  #   - cvxpy  # [not (osx and py313)]
-  #   - ecos   # [not (osx and py313)]
-  # source_files:
-  #   - tests
-  # commands:
-  #   - nose2 tests  # [not (osx and py313)]
+  requires:
+    - nose2
+    - cvxpy  # [not (osx and py313)]
+    - ecos   # [not (osx and py313)]
+  source_files:
+    - tests
+  commands:
+    - nose2 tests  # [not (osx and py313)]
 
 about:
   home: https://github.com/j-friedrich/OASIS
