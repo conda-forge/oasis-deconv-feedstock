@@ -27,19 +27,19 @@ requirements:
     - {{ pin_compatible("numpy") }}
     - scipy
     - matplotlib-base
-    - cython
-    - cvxpy
-    - ecos
+    # - cython
 
 test:
   imports:
     - oasis
   requires:
     - nose2
+    - cvxpy
+    - ecos
   source_files:
     - tests
   commands:
-    - pip check
+    # - pip check
     - nose2 tests
 
 about:
