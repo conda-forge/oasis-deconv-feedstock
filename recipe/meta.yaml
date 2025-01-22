@@ -18,13 +18,14 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
+    - setuptools
     - numpy <2.0.0  # [not py313]
-    # - numpy >=2.2.2  # [py313]
+    - numpy         # [py313]
     - cython
     - pip
   run:
     - python
-    # - {{ pin_compatible("numpy") }}
+    - {{ pin_compatible("numpy") }}
     - scipy
     - matplotlib-base
 
