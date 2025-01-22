@@ -34,12 +34,12 @@ test:
     - oasis
   requires:
     - nose2
-    - cvxpy  # [not (osx and py313)]
-    - ecos   # [not (osx and py313)]
+    - cvxpy  # [not osx]
+    - ecos   # [not osx]
   source_files:
     - tests
   commands:
-    - nose2 tests  # [not (osx and py313)]
+    - nose2 tests  # [not osx]
 
 about:
   home: https://github.com/j-friedrich/OASIS
