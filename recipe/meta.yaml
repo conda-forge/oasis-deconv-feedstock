@@ -19,11 +19,13 @@ requirements:
   host:
     - python
     - numpy <2.0.0   # [not py313]
+    - numpy >=2.0.0  # [py313]
     - cython
     - pip
   run:
     - python
     - numpy <2.0.0   # [not py313]
+    - numpy >=2.0.0  # [py313]
     - scipy
     - matplotlib-base
 
