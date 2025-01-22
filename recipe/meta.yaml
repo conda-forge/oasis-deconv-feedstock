@@ -27,20 +27,18 @@ requirements:
     - {{ pin_compatible("numpy") }}
     - scipy
     - matplotlib-base
-    # - cython
 
 test:
   imports:
     - oasis
   requires:
     - nose2
-    - cvxpy
-    - ecos
+    - cvxpy  # [not (osx and py313)]
+    - ecos   # [not (osx and py313)]
   source_files:
     - tests
   commands:
-    # - pip check
-    - nose2 tests
+    - nose2 tests  # [not (osx and py313)]
 
 about:
   home: https://github.com/j-friedrich/OASIS
