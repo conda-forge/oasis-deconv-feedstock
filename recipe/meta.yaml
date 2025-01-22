@@ -1,21 +1,22 @@
 {% set name = "oasis-deconv" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v0.2.0.tar.gz
-  sha256: 3be3de589b0d070e0e0af4f215b2a16d41389be9206e90720827cec66af602b1
+  url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 9ae6d77b034905c00d70a930b370de48b186dd2dd044556aeb99b6c59d0aa334
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script: {{ PYTHON }} -m pip install . -vv --ignore-installed --no-deps
+  number: 0
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler("cxx") }}
+    - {{ stdlib("c") }}
   host:
     - python
     - setuptools
@@ -27,21 +28,18 @@ requirements:
     - {{ pin_compatible("numpy") }}
     - scipy
     - matplotlib-base
-    - cython
 
 test:
   imports:
     - oasis
   requires:
-    - pytest
-    - setuptools<=64.0.2
-    - cvxpy
-    - pip
+    - nose2
+    - cvxpy  # [not osx]
+    - ecos   # [not osx]
   source_files:
     - tests
   commands:
-    - pip check
-    - pytest tests
+    - nose2 tests  # [not osx]
 
 about:
   home: https://github.com/j-friedrich/OASIS
