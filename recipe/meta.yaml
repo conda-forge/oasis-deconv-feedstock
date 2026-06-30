@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v{{ version }}.tar.gz
   sha256: fa7906f97487d4f0f093ee71cb8ab03ab4677c4e6a3cc8ef363a89c914245485
+  patches:
+    - patches/cython31_integer_division.patch
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
