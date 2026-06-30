@@ -10,7 +10,7 @@ source:
   sha256: fa7906f97487d4f0f093ee71cb8ab03ab4677c4e6a3cc8ef363a89c914245485
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv --ignore-installed --no-deps
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
   number: 0
 
 requirements:
@@ -19,13 +19,14 @@ requirements:
     - {{ stdlib("c") }}
   host:
     - python
-    - setuptools
-    - numpy
-    - cython
     - pip
+    - hatchling
+    - hatch-cython
+    - cython
+    - numpy
   run:
     - python
-    - {{ pin_compatible("numpy") }}
+    - numpy
     - scipy
     - matplotlib-base
 
@@ -33,13 +34,11 @@ test:
   imports:
     - oasis
   requires:
-    - nose2
-    - cvxpy  # [not osx]
-    - ecos   # [not osx]
+    - pytest
   source_files:
     - tests
   commands:
-    - nose2 tests  # [not osx]
+    - pytest tests
 
 about:
   home: https://github.com/j-friedrich/OASIS
