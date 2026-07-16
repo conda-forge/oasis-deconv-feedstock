@@ -1,5 +1,5 @@
 {% set name = "oasis-deconv" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/j-friedrich/OASIS/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 89971649eec16264626f5d83a86faf757ded64aaa2303aaa1397504ef5af3d10
+  sha256: bf8e13c289cd9e66eb44d2f9aae74401d4256ae22779d61d7f1fc3417dee5088
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
